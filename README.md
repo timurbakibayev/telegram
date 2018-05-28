@@ -1,6 +1,6 @@
 # Telegram Bot Study Template
 
-0. Установите библиотеку telepot с помощью команды "pip install telepot"
+0. Установите библиотеку telepot с помощью команды "pip install telepot" в командной строке (windows) или терминале (linux, mac)
 
 1. Зерегистрируйте telegram-бота:
 
