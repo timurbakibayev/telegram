@@ -48,7 +48,7 @@ def question(text, chat_id):
         state[chat_id] = {"x": 4, "y": 4}
     if chat_id not in names:
         names[chat_id] = "?"
-        return "Hi! what is your name?"
+        return "Hi! what is your name? " + "http://www.europaplus.ru/upload/thumb/news_308/images/news/Untitled-1_1355402814.jpg"
     if names[chat_id] == "?":
         names[chat_id] = text
         return "Hi, " + names[chat_id] + "! Nice to meet you! " + position(state[chat_id], chat_id)
