@@ -29,7 +29,10 @@ def position(coordinates, chat_id):
         walls.append("below")
     if x == 0 or y == 0 or x == len(maze[0])-1 or y == len(maze)-1:
         return "Congratulations, " + names[chat_id] + "! You solved the maze!!! "
-    return "Great! You are now at position " + str(coordinates) + "\n Walls: " + ",".join(walls)
+    if len(walls) > 0:
+        return "Great! You are now at position " + str(coordinates) + "\n Walls: " + ",".join(walls)
+    else:
+        return "Great! You are now at position " + str(coordinates) + "\n There are no walls around you."
 
 
 def question(text, chat_id):
