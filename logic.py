@@ -3,6 +3,7 @@
 
 names = {}
 state = {}
+answers = {}
 
 maze = [
     [1,1,1,1,1,1,1,0,1,1,1,1],
@@ -36,6 +37,13 @@ def position(coordinates, chat_id):
 
 
 def question(text, chat_id):
+    if chat_id not in answers:
+        answers[chat_id] = []
+    answers[chat_id].append(text)
+
+    if text.lower() == "history":
+        return "\n".join(answers[chat_id])
+
     if chat_id not in state:
         state[chat_id] = {"x": 4, "y": 4}
     if chat_id not in names:
