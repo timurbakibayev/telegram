@@ -18,9 +18,18 @@ maze = [
 
 def position(coordinates, chat_id):
     x, y = coordinates["x"], coordinates["y"]
+    walls = []
+    if x > 0 and maze[y][x-1] == 1:
+        walls.append("left")
+    if x < len(maze[y])-1 and maze[y][x+1] == 1:
+        walls.append("right")
+    if y > 0 and maze[y-1][x] == 1:
+        walls.append("above")
+    if y < len(maze)-1 and maze[y+1][x] == 1:
+        walls.append("below")
     if x == 0 or y == 0 or x == len(maze[0])-1 or y == len(maze)-1:
-        return "Congratulations, " + names[chat_id] + "! You solved the maze!!!"
-    return "Great! You are now at position " + str(coordinates)
+        return "Congratulations, " + names[chat_id] + "! You solved the maze!!! "
+    return "Great! You are now at position " + str(coordinates) + "\n Walls: " + ",".join(walls)
 
 
 def question(text, chat_id):
